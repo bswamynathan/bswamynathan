@@ -1,0 +1,10 @@
+#!/bin/bash
+mkdir Process-parent
+echo "Directory Process-parent is created"
+pwd
+touch process.log
+echo "process.log created"
+echo "process is a process for the process by the process" > Process.log
+cat process.log | grep process
+ps -eo pid. ppid,cmd,%mem,%cpu --sort=-%mem |head -5 >>Process.log
+echo "done"

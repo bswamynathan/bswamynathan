@@ -1,0 +1,10 @@
+#!/bin/bash
+mkdir process-final
+echo "process-final directory is created"
+pwd
+cd process-final
+touch balaje.log
+echo "Hi I am Balaji.., ;logged into machine `hostname -i |awk '{print$2}'` , at `date` have observations listed," >> balaje.log
+cat balaje.log
+cat ../process-parent/process.log
+echo "Done"
