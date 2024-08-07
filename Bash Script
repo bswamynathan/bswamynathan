@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Set the URL and request options
+URL="https://guvi.in"
+HEAD_ONLY=true
+WRITE_OUT_QUOTED=true
+
+# Run curl with HEAD request and write-out option
+curl --head --write-out "%{http_code}" "$URL" > http.response.code 2> error.messages
+
+# Extract the HTTP response code
+errorLevel=$?
+httpResponse=$(cat http.response.code)
+
+# Define success and failure messages
+if [[ $httpResponse -ge 200 && $httpResponse -lt 300 ]]; then
+  message="Request successful (HTTP ${httpResponse})"
+elif [[ $httpResponse -ge 400 && $httpResponse -lt 500 ]]; then
+  message="Client error (HTTP ${httpResponse})"
+elif [[ $httpResponse -ge 500 ]]; then
+  message="Server error (HTTP ${httpResponse})"
+else
+  message="Unknown error (HTTP ${httpResponse})"
+fi
+
+# Print the message
+echo -e "${message}" >> error.messages
