@@ -1,0 +1,12 @@
+1. github repo URL  : https://github.com/bswamynathan/newprojectrepo
+
+2. Deployed site URL : http://174.129.89.205/
+
+3. Jenkins site URL : http://174.129.89.205:8080
+
+4. Docker Image name :  balaji997/dev:my-react-app
+                        balaji997/prod:my-react-app
+
+
+
+
